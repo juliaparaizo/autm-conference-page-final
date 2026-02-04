@@ -1,17 +1,19 @@
 "use server"
 
-export async function sendWaitingListEmail(data: {
+export async function sendContactEmail(data: {
   name: string
-  phone: string
   email: string
+  organization: string
+  message: string
 }) {
-  const { name, phone, email } = data
+  const { name, email, organization, message } = data
 
   // Log the submission (connect to email service later)
-  console.log("New PCT Portal Waiting List Signup:", {
+  console.log("New Contact Form Submission:", {
     name,
-    phone,
     email,
+    organization,
+    message,
     submittedAt: new Date().toISOString(),
     recipient: "info@fullerip.com"
   })

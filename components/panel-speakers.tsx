@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { MapPin, Calendar, Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 type Speaker = {
   name: string
@@ -180,9 +181,30 @@ export function PanelSpeakers() {
           </div>
         ) : null}
         
-        <p className="text-center text-dawn/50 text-sm mt-8 italic">
-          Speaker photos and complete bios will be updated as confirmed.
+        <p className="text-lg text-dawn/80 leading-relaxed max-w-3xl mx-auto text-center mt-12">
+          Universities and research institutions hold vast portfolios of intellectual property that often remain 
+          underutilized. This panel brings together industry experts, university leaders, and legal professionals 
+          to explore innovative strategies for unlocking the value of dormant IP assets.
         </p>
+        
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <Button 
+            size="lg"
+            className="bg-[#415569] text-white hover:bg-[#415569]/80 font-medium px-8 py-6 text-base border border-[#5E7467]/30"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Request More Info
+          </Button>
+          <a 
+            href="https://fullerip.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border-2 border-[#5E7467] text-white hover:bg-[#5E7467]/20 px-8 py-3 text-base bg-transparent transition-all"
+          >
+            Schedule a 1-on-1
+          </a>
+        </div>
       </div>
     </section>
   )

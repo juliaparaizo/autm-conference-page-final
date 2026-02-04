@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
 import { EventDetails } from "@/components/event-details"
 import { PanelSpeakers } from "@/components/panel-speakers"
 import { VideoSection } from "@/components/video-section"
@@ -11,12 +10,11 @@ export default function AUTMConferencePage() {
   return (
     <main className="min-h-screen bg-background font-sans">
       <Header />
-      <HeroSection />
       <EventDetails />
       <PanelSpeakers />
-      <VideoSection />
       <WhitepaperSignup />
       <ContactSection />
+      <VideoSection />
       <Footer />
     </main>
   )

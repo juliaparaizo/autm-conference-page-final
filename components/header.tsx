@@ -2,7 +2,7 @@ import { ExternalLink } from "lucide-react"
 
 export function Header() {
     return (
-        <header className="bg-gradient-to-r from-[#BE4D00] via-[#FF6727] to-[#EE9C38] text-white py-4">
+        <header className="bg-gradient-to-r from-[#BE4D00] via-[#FF6727] to-[#EE9C38] text-white py-2">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -11,7 +11,7 @@ export function Header() {
                             <img
                                 src="/fullerip-rgb-horizontal-white.png"
                                 alt="Fuller IP Law"
-                                className="h-14"
+                                className="h-12 md:h-16"
                             />
                             <span className="hidden sm:inline text-white/80 text-sm font-medium flex items-center gap-1">
                                 Cultivating Your Success
