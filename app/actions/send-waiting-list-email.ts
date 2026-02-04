@@ -1,8 +1,6 @@
 "use server"
 
-import { Resend } from "resend"
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import nodemailer from "nodemailer"
 
 export async function sendWaitingListEmail(data: {
   name: string
@@ -12,8 +10,19 @@ export async function sendWaitingListEmail(data: {
   try {
     const { name, phone, email } = data
 
-    await resend.emails.send({
-      from: "Fuller IP PCT Portal <onboarding@resend.dev>",
+    // Create transporter using SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+    })
+
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: "info@fullerip.com",
       subject: "New PCT Portal Waiting List Signup",
       html: `
