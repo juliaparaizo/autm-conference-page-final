@@ -2,21 +2,34 @@
 
 import React from "react"
 
-import { Globe, CheckCircle2, Send } from "lucide-react"
+import { Globe, CheckCircle2, Send, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { sendWaitingListEmail } from "@/app/actions/send-waiting-list-email"
 
 export function WhitepaperSignup() {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission - this would connect to your email service
-    setSubmitted(true)
+    setIsLoading(true)
+    setError("")
+    
+    const result = await sendWaitingListEmail({ name, phone, email })
+    
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError("Something went wrong. Please try again.")
+    }
+    
+    setIsLoading(false)
   }
   
   return (
@@ -118,11 +131,25 @@ export function WhitepaperSignup() {
                     <Button 
                       type="submit"
                       size="lg"
+                      disabled={isLoading}
                       className="w-full bg-[#415569] hover:bg-[#5E7467] text-white font-medium mt-2"
                     >
-                      <Send className="w-4 h-4 mr-2" />
-                      Join Waiting List
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Join Waiting List
+                        </>
+                      )}
                     </Button>
+                    
+                    {error && (
+                      <p className="text-sm text-red-500 text-center">{error}</p>
+                    )}
                     
                     <p className="text-xs text-[#415569]/50 text-center">
                       By signing up, you agree to receive communications from Fuller IP Law. 
