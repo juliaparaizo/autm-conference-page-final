@@ -2,11 +2,12 @@
 
 import React from "react"
 
-import { Mail, Phone, MapPin, Calendar, ArrowRight, Globe } from "lucide-react"
+import { Mail, Phone, MapPin, Calendar, ArrowRight, Globe, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
+import { sendContactEmail } from "@/app/actions/send-contact-email"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,11 +17,23 @@ export function ContactSection() {
     message: ""
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    setSubmitted(true)
+    setIsLoading(true)
+    setError("")
+    
+    const result = await sendContactEmail(formData)
+    
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError("Something went wrong. Please try again.")
+    }
+    
+    setIsLoading(false)
   }
   
   return (
@@ -191,11 +204,25 @@ export function ContactSection() {
                     <Button 
                       type="submit"
                       size="lg"
+                      disabled={isLoading}
                       className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
                     >
-                      Send Message
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </>
+                      )}
                     </Button>
+                    
+                    {error && (
+                      <p className="text-sm text-red-500 text-center">{error}</p>
+                    )}
                   </form>
                 ) : (
                   <div className="text-center py-12">
