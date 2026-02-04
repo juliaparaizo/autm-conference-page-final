@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { Globe, CheckCircle2, Send, Loader2 } from "lucide-react"
+import { FileText, CheckCircle2, Download, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
@@ -41,33 +41,33 @@ export function WhitepaperSignup() {
               {/* Left Side - Info */}
               <div className="md:col-span-2 bg-[#415569] p-8 md:p-10 text-white">
                 <div className="w-14 h-14 bg-[#5E7467]/30 rounded-xl flex items-center justify-center mb-6">
-                  <Globe className="w-7 h-7 text-white" />
+                  <FileText className="w-7 h-7 text-white" />
                 </div>
                 
                 <h3 className="text-2xl font-semibold mb-4">
-                  Fuller IP PCT Portal
+                  Free Whitepaper
                 </h3>
                 
                 <p className="text-white/80 mb-6 leading-relaxed">
-                  Receive a discount on your first month when you join the Fuller IP PCT Portal Waiting List today.
+                  Sign up to receive our comprehensive research on dormant IP challenges and solutions.
                 </p>
                 
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#5E7467] mt-0.5 flex-shrink-0" />
-                    <span className="text-white/90 text-sm">Early access to our PCT Portal platform</span>
+                    <span className="text-white/90 text-sm">Analysis of IP utilization trends in universities</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#5E7467] mt-0.5 flex-shrink-0" />
-                    <span className="text-white/90 text-sm">Exclusive first-month discount</span>
+                    <span className="text-white/90 text-sm">Case studies of successful IP activation</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#5E7467] mt-0.5 flex-shrink-0" />
-                    <span className="text-white/90 text-sm">Priority onboarding support</span>
+                    <span className="text-white/90 text-sm">Actionable strategies for tech transfer offices</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#5E7467] mt-0.5 flex-shrink-0" />
-                    <span className="text-white/90 text-sm">Be the first to know when we launch</span>
+                    <span className="text-white/90 text-sm">Legal considerations and best practices</span>
                   </div>
                 </div>
               </div>
@@ -75,10 +75,10 @@ export function WhitepaperSignup() {
               {/* Right Side - Form */}
               <div className="md:col-span-3 p-8 md:p-10">
                 <h4 className="text-xl font-semibold text-[#333F4C] mb-2">
-                  Join the Waiting List
+                  The Issue of Dormant IP in Universities
                 </h4>
                 <p className="text-[#415569]/70 mb-6">
-                  Sign up now to receive your discount when the PCT Portal launches.
+                  Get exclusive access to our research whitepaper.
                 </p>
                 
                 {!submitted ? (
@@ -99,23 +99,8 @@ export function WhitepaperSignup() {
                     </div>
                     
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-[#415569] mb-1.5">
-                        Phone Number
-                      </label>
-                      <Input 
-                        id="phone"
-                        type="tel"
-                        placeholder="(555) 123-4567"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        required
-                        className="border-[#415569]/30 focus:border-[#415569] focus:ring-[#415569]"
-                      />
-                    </div>
-                    
-                    <div>
                       <label htmlFor="email" className="block text-sm font-medium text-[#415569] mb-1.5">
-                        Email Address
+                        Work Email
                       </label>
                       <Input 
                         id="email"
@@ -141,8 +126,8 @@ export function WhitepaperSignup() {
                         </>
                       ) : (
                         <>
-                          <Send className="w-4 h-4 mr-2" />
-                          Join Waiting List
+                          <Download className="w-4 h-4 mr-2" />
+                          Download Whitepaper
                         </>
                       )}
                     </Button>
@@ -161,9 +146,9 @@ export function WhitepaperSignup() {
                     <div className="w-16 h-16 bg-[#5E7467]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle2 className="w-8 h-8 text-[#5E7467]" />
                     </div>
-                    <h5 className="text-xl font-semibold text-[#333F4C] mb-2">You're on the List!</h5>
+                    <h5 className="text-xl font-semibold text-[#333F4C] mb-2">Thank You!</h5>
                     <p className="text-[#415569]/70">
-                      We'll notify you when the PCT Portal launches with your exclusive discount.
+                      Your whitepaper is on its way to your inbox. Check your email shortly.
                     </p>
                   </div>
                 )}

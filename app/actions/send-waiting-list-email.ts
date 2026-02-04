@@ -2,15 +2,14 @@
 
 export async function sendWaitingListEmail(data: {
   name: string
-  phone: string
+  phone?: string
   email: string
 }) {
-  const { name, phone, email } = data
+  const { name, email } = data
 
   // Log the submission (connect to email service later)
-  console.log("New PCT Portal Waiting List Signup:", {
+  console.log("New Whitepaper Download Request:", {
     name,
-    phone,
     email,
     submittedAt: new Date().toISOString(),
     recipient: "info@fullerip.com"
