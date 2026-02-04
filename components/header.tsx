@@ -11,10 +11,11 @@ export function Header() {
                             <img
                                 src="/fullerip-rgb-horizontal-white.png"
                                 alt="Fuller IP Law"
-                                className="h-10"
+                                className="h-14"
                             />
-                            <span className="hidden sm:inline text-white/80 text-sm font-medium">
+                            <span className="hidden sm:inline text-white/80 text-sm font-medium flex items-center gap-1">
                                 Cultivating Your Success
+                                <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-white/80 text-[8px] font-bold leading-none">SM</span>
                             </span>
                         </div>
 

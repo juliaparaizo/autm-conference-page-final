@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { MapPin, Calendar, Clock } from "lucide-react"
 
 type Speaker = {
   name: string
@@ -8,18 +9,19 @@ type Speaker = {
   organization: string
   image: string
   bio: string
+  isModerator?: boolean
 }
 
-const moderator = {
-  name: "Rodney J. Fuller",
-  title: "Founding Partner",
-  organization: "Fuller IP Law",
-  image: "/RodFullerHeadshot.jpg.jpeg",
-  bio: `Rodney J. Fuller is a registered patent and trademark attorney and partner of Fuller IP Law.
+const allSpeakers: Speaker[] = [
+  {
+    name: "Rodney J. Fuller",
+    title: "Founding Partner",
+    organization: "Fuller IP Law",
+    image: "/RodFullerHeadshot.jpg.jpeg",
+    isModerator: true,
+    bio: `Rodney J. Fuller is a registered patent and trademark attorney and partner of Fuller IP Law.
 A big-picture visionary with focused game-plan strategy skills, Rod proffers enthusiastic support and it's-possible thinking to turn your ambitious goals into reality. If you asked Rod about his biggest career successes, he probably wouldn't mention the multi-million dollar companies he represents or the international alliances he's established. Instead, he'd probably talk excitedly about the brilliant person he spoke with yesterday whose idea is going to change the world. If you were to remind him that you were hoping to hear about his biggest success, not his client's, he'd respond by expressing that is his greatest success: improving the world by giving the brilliant minds around him access to progress through his carefully designed strategies of intellectual property protection and growth. Perhaps the epitome of his inclination to beautify the world through proactive innovation is the new iris that he hybridized in his own backyard that was accepted by the American Iris Society. As a great communicator, Rod is a dependable guide through the IP maze without ever losing the joy of the dream.`
-}
-
-const speakers: Speaker[] = [
+  },
   {
     name: "Patricia Stepp",
     title: "Assistant Vice President, Technology Transfer",
@@ -83,32 +85,9 @@ export function PanelSpeakers() {
           </p>
         </div>
         
-        {/* Moderator Card - Featured */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <div className="bg-horizon/40 text-white rounded-xl border-2 border-verde/30 overflow-hidden shadow-sm">
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/3 overflow-hidden">
-                <img src={moderator.image || "/placeholder.svg"} alt={moderator.name} className="w-full h-full object-cover object-top" />
-              </div>
-              <div className="md:w-2/3 p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="inline-flex items-center justify-center rounded-md bg-verde text-white px-2 py-0.5 text-xs font-medium">
-                    <MicIcon />
-                    <span className="ml-1">Moderator</span>
-                  </span>
-                </div>
-                <h3 className="text-2xl font-semibold text-white mb-1">{moderator.name}</h3>
-                <p className="text-verde font-medium mb-1">{moderator.title}</p>
-                <p className="text-dawn/70 text-sm mb-4">{moderator.organization}</p>
-                <p className="text-white/80 text-sm leading-relaxed">{moderator.bio}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Panel Speakers Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {speakers.map((speaker, index) => (
+        {/* All Panel Speakers in One Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {allSpeakers.map((speaker, index) => (
             <div 
               key={index} 
               className="bg-horizon/40 text-white rounded-xl border border-horizon hover:border-verde/50 transition-colors duration-300 overflow-hidden shadow-sm group cursor-pointer"
@@ -118,14 +97,47 @@ export function PanelSpeakers() {
                 <img src={speaker.image || "/placeholder.svg"} alt={speaker.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-5">
+                {speaker.isModerator && (
+                  <span className="inline-flex items-center justify-center rounded-md bg-verde text-white px-2 py-0.5 text-xs font-medium mb-2">
+                    <MicIcon />
+                    <span className="ml-1">Moderator</span>
+                  </span>
+                )}
                 <h3 className="text-lg font-semibold text-white mb-1">{speaker.name}</h3>
                 <p className="text-verde text-sm font-medium mb-1">{speaker.title}</p>
                 <p className="text-dawn/70 text-xs mb-3">{speaker.organization}</p>
-                <p className="text-dawn/70 text-sm leading-relaxed line-clamp-4">{speaker.bio}</p>
+                <p className="text-dawn/70 text-sm leading-relaxed line-clamp-3">{speaker.bio}</p>
                 <p className="text-verde text-xs mt-2 group-hover:underline">Click to read more</p>
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* AUTM Event Info Boxes */}
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-12 justify-center max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 bg-[#415569]/40 backdrop-blur-sm rounded-lg px-5 py-3 border border-[#5E7467]/30">
+            <MapPin className="w-5 h-5 text-[#5E7467]" />
+            <div className="text-left">
+              <p className="text-white font-medium">Seattle Convention Center</p>
+              <p className="text-white/60 text-sm">Arch 705 Pike St, Seattle, WA 98101</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3 bg-[#415569]/40 backdrop-blur-sm rounded-lg px-5 py-3 border border-[#5E7467]/30">
+            <Calendar className="w-5 h-5 text-[#5E7467]" />
+            <div className="text-left">
+              <p className="text-white font-medium">Panel Discussion</p>
+              <p className="text-white/60 text-sm">Tuesday, February 10th, 2026</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3 bg-[#415569]/40 backdrop-blur-sm rounded-lg px-5 py-3 border border-[#5E7467]/30">
+            <Clock className="w-5 h-5 text-[#5E7467]" />
+            <div className="text-left">
+              <p className="text-white font-medium">11:00 AM - 12:15 PM</p>
+              <p className="text-white/60 text-sm">Pacific Time</p>
+            </div>
+          </div>
         </div>
 
         {/* Custom Speaker Modal */}

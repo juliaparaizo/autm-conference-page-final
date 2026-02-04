@@ -13,8 +13,9 @@ export function Footer() {
                 alt="Fuller IP Law"
                 className="h-12 mb-3 mx-auto md:mx-0"
               />
-              <p className="text-white font-medium text-sm tracking-wide">
+              <p className="text-white font-medium text-sm tracking-wide flex items-center gap-1">
                 Cultivating Your Success
+                <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-white text-[8px] font-bold leading-none">SM</span>
               </p>
             </div>
             
@@ -57,9 +58,7 @@ export function Footer() {
             <p>
               © {new Date().getFullYear()} Fuller IP Law. All rights reserved.
             </p>
-            <p>
-              Fuller IP Law is a proud sponsor of AUTM 2026.
-            </p>
+            
           </div>
         </div>
       </div>

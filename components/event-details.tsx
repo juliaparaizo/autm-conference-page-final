@@ -1,4 +1,4 @@
-import { Lightbulb } from "lucide-react"
+import { Lightbulb, TrendingUp, Zap, Handshake } from "lucide-react"
 
 export function EventDetails() {
   return (
@@ -27,7 +27,7 @@ export function EventDetails() {
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="bg-horizon/30 rounded-xl p-6 border border-horizon/50">
               <div className="w-12 h-12 bg-verde/20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-verde font-semibold text-xl">01</span>
+                <TrendingUp className="w-6 h-6 text-verde" />
               </div>
               <h3 className="text-white font-semibold mb-2">Funding Strategies</h3>
               <p className="text-dawn/70 text-sm">
@@ -36,8 +36,8 @@ export function EventDetails() {
             </div>
             
             <div className="bg-horizon/30 rounded-xl p-6 border border-horizon/50">
-              <div className="w-12 h-12 bg-horizon/30 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-horizon font-semibold text-xl">02</span>
+              <div className="w-12 h-12 bg-verde/20 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-verde" />
               </div>
               <h3 className="text-white font-semibold mb-2">IP Activation</h3>
               <p className="text-dawn/70 text-sm">
@@ -47,7 +47,7 @@ export function EventDetails() {
             
             <div className="bg-horizon/30 rounded-xl p-6 border border-horizon/50">
               <div className="w-12 h-12 bg-verde/20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-verde font-semibold text-xl">03</span>
+                <Handshake className="w-6 h-6 text-verde" />
               </div>
               <h3 className="text-white font-semibold mb-2">Partnership Models</h3>
               <p className="text-dawn/70 text-sm">
