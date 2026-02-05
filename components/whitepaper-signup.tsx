@@ -74,8 +74,8 @@ export function WhitepaperSignup() {
               
               {/* Right Side - Form */}
               <div className="md:col-span-3 p-8 md:p-10">
-                <h4 className="text-xl font-semibold text-[#333F4C] mb-2">
-                  The Issue of Dormant IP in Universities
+                <h4 className="text-lg font-semibold text-[#333F4C] mb-2">
+                  The Issue of Dormant IP in Technology Transfer Offices (TTO)
                 </h4>
                 <p className="text-[#415569]/70 mb-6">
                   Get exclusive access to our research whitepaper.

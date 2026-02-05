@@ -119,18 +119,23 @@ export function ContactSection() {
                   </a>
                 </Button>
                 
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="w-full border-verde text-verde hover:bg-verde hover:text-white font-medium bg-transparent"
-                  asChild
-                >
-                  <a href="https://fullerip.com/pct-portal" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                    <Globe className="w-5 h-5" />
-                    PCT Portal
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </Button>
+                <div className="bg-horizon/30 rounded-xl p-4 border border-horizon/50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Globe className="w-5 h-5 text-verde" />
+                    <span className="text-white font-medium">PCT Portal</span>
+                    <span className="text-xs bg-verde/20 text-verde px-2 py-0.5 rounded-full">Coming Soon</span>
+                  </div>
+                  <p className="text-dawn/70 text-sm mb-3">
+                    Pre-register now and receive a discount when we go live.
+                  </p>
+                  <Button 
+                    size="sm"
+                    className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
+                    onClick={() => document.getElementById('pct-preregister')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Pre-Register for Discount
+                  </Button>
+                </div>
               </div>
             </div>
             

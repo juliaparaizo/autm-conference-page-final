@@ -181,8 +181,8 @@ export function PanelSpeakers() {
           </div>
         ) : null}
         
-        <p className="text-lg text-dawn/80 leading-relaxed max-w-3xl mx-auto text-center mt-12">
-          Universities and research institutions hold vast portfolios of intellectual property that often remain 
+        <p className="text-lg text-white/90 leading-relaxed max-w-3xl mx-auto text-center mt-12">
+          Universities, research institutions and other TTO's hold vast portfolios of intellectual property that often remain 
           underutilized. This panel brings together industry experts, university leaders, and legal professionals 
           to explore innovative strategies for unlocking the value of dormant IP assets.
         </p>
