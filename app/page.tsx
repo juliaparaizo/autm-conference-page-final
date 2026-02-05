@@ -4,6 +4,7 @@ import { PanelSpeakers } from "@/components/panel-speakers"
 import { VideoSection } from "@/components/video-section"
 import { WhitepaperSignup } from "@/components/whitepaper-signup"
 import { ContactSection } from "@/components/contact-section"
+import { PctPreregister } from "@/components/pct-preregister"
 import { Footer } from "@/components/footer"
 
 export default function AUTMConferencePage() {
@@ -14,6 +15,7 @@ export default function AUTMConferencePage() {
       <PanelSpeakers />
       <WhitepaperSignup />
       <ContactSection />
+      <PctPreregister />
       <VideoSection />
       <Footer />
     </main>
