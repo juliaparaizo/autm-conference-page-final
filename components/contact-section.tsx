@@ -120,18 +120,21 @@ export function ContactSection() {
                 </Button>
                 
                 <div className="bg-horizon/30 rounded-xl p-4 border border-horizon/50">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <Globe className="w-5 h-5 text-verde" />
-                    <span className="text-white font-medium">PCT Portal</span>
+                    <span className="text-white font-medium text-sm">Portal for US National Stage Filings from PCTs</span>
                     <span className="text-xs bg-verde/20 text-verde px-2 py-0.5 rounded-full">Coming Soon</span>
                   </div>
-                  <p className="text-dawn/70 text-sm mb-3">
+                  <p className="text-white/80 text-sm mb-3 leading-relaxed">
+                    High value, low cost, efficient US National Stage filing for your PCT Applications by a trusted, reliable US Law Firm. Additional discounts available for bulk filing.
+                  </p>
+                  <p className="text-dawn/70 text-xs mb-3">
                     Pre-register now and receive a discount when we go live.
                   </p>
                   <Button 
                     size="sm"
                     className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
-                    onClick={() => document.getElementById('pct-preregister')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Pre-Register for Discount
                   </Button>

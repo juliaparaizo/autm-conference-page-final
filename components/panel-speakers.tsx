@@ -106,8 +106,8 @@ export function PanelSpeakers() {
                 )}
                 <h3 className="text-lg font-semibold text-white mb-1">{speaker.name}</h3>
                 <p className="text-verde text-sm font-medium mb-1">{speaker.title}</p>
-                <p className="text-dawn/70 text-xs mb-3">{speaker.organization}</p>
-                <p className="text-dawn/70 text-sm leading-relaxed line-clamp-3">{speaker.bio}</p>
+                <p className="text-white/80 text-xs mb-3">{speaker.organization}</p>
+                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{speaker.bio}</p>
                 <p className="text-verde text-xs mt-2 group-hover:underline">Click to read more</p>
               </div>
             </div>
