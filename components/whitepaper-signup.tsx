@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { FileText, CheckCircle2, Download, Loader2 } from "lucide-react"
+import { FileText, CheckCircle2, Mail, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
@@ -94,7 +94,7 @@ export function WhitepaperSignup() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="border-[#415569]/30 focus:border-[#415569] focus:ring-[#415569]"
+                        className="border-[#415569]/30 focus:border-[#415569] focus:ring-[#415569] text-[#333F4C]"
                       />
                     </div>
                     
@@ -109,7 +109,7 @@ export function WhitepaperSignup() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="border-[#415569]/30 focus:border-[#415569] focus:ring-[#415569]"
+                        className="border-[#415569]/30 focus:border-[#415569] focus:ring-[#415569] text-[#333F4C]"
                       />
                     </div>
                     
@@ -126,8 +126,8 @@ export function WhitepaperSignup() {
                         </>
                       ) : (
                         <>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Whitepaper
+                          <Mail className="w-4 h-4 mr-2" />
+                          Send Me the Whitepaper
                         </>
                       )}
                     </Button>
