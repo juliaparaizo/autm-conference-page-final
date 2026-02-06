@@ -20,6 +20,11 @@ export function ContactSection() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   
+  const [pctForm, setPctForm] = useState({ name: "", email: "", phone: "" })
+  const [pctSubmitted, setPctSubmitted] = useState(false)
+  const [pctLoading, setPctLoading] = useState(false)
+  const [showPctForm, setShowPctForm] = useState(false)
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
@@ -131,13 +136,76 @@ export function ContactSection() {
                   <p className="text-dawn/70 text-xs mb-3">
                     Pre-register now and receive a discount when we go live.
                   </p>
-                  <Button 
-                    size="sm"
-                    className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    Pre-Register for Discount
-                  </Button>
+
+                  {!showPctForm && !pctSubmitted && (
+                    <Button 
+                      size="sm"
+                      className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
+                      onClick={() => setShowPctForm(true)}
+                    >
+                      Pre-Register for Discount
+                    </Button>
+                  )}
+
+                  {showPctForm && !pctSubmitted && (
+                    <form
+                      className="space-y-3 mt-3"
+                      onSubmit={async (e) => {
+                        e.preventDefault()
+                        setPctLoading(true)
+                        console.log("PCT Pre-Registration:", { ...pctForm, recipient: "info@fullerip.com" })
+                        await new Promise((r) => setTimeout(r, 500))
+                        setPctSubmitted(true)
+                        setPctLoading(false)
+                      }}
+                    >
+                      <Input
+                        type="text"
+                        placeholder="Your name"
+                        value={pctForm.name}
+                        onChange={(e) => setPctForm({ ...pctForm, name: e.target.value })}
+                        required
+                        className="border-horizon bg-slate/50 text-white placeholder:text-dawn/50 focus:border-verde text-sm"
+                      />
+                      <Input
+                        type="email"
+                        placeholder="you@company.com"
+                        value={pctForm.email}
+                        onChange={(e) => setPctForm({ ...pctForm, email: e.target.value })}
+                        required
+                        className="border-horizon bg-slate/50 text-white placeholder:text-dawn/50 focus:border-verde text-sm"
+                      />
+                      <Input
+                        type="tel"
+                        placeholder="Phone number"
+                        value={pctForm.phone}
+                        onChange={(e) => setPctForm({ ...pctForm, phone: e.target.value })}
+                        required
+                        className="border-horizon bg-slate/50 text-white placeholder:text-dawn/50 focus:border-verde text-sm"
+                      />
+                      <Button
+                        type="submit"
+                        size="sm"
+                        disabled={pctLoading}
+                        className="w-full bg-verde hover:bg-verde/80 text-white font-medium"
+                      >
+                        {pctLoading ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Submitting...
+                          </>
+                        ) : (
+                          "Pre-Register for Discount"
+                        )}
+                      </Button>
+                    </form>
+                  )}
+
+                  {pctSubmitted && (
+                    <div className="text-center py-3">
+                      <p className="text-verde font-medium text-sm">You're pre-registered! We'll be in touch.</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
